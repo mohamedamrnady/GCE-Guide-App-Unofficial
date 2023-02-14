@@ -1,6 +1,6 @@
 # GCE-Guide-App-Unofficial
 
-An app made in Python which helps GCE students to access past papers (IGCSE, A/AS, O Levels).
+An app made in Flutter which helps GCE students to access past papers (IGCSE, A/AS, O Levels).
 
 # NOTICE
 
