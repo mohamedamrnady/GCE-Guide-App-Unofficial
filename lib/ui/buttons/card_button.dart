@@ -13,24 +13,12 @@ class CardModel extends StatelessWidget {
       child: Container(
         margin: const EdgeInsets.symmetric(horizontal: 6, vertical: 6),
         padding: const EdgeInsets.symmetric(vertical: 8.0),
-        height: 60,
+        height: 40,
         width: double.infinity,
-        decoration: BoxDecoration(
-          border: Border.all(
-            width: 2.5,
-            color: SchedulerBinding.instance.window.platformBrightness ==
-                    Brightness.dark
-                ? Colors.white
-                : Colors.black,
-          ),
-          borderRadius: BorderRadius.circular(8),
-        ),
-        child: Center(
-            child: Text(
+        child: Text(
           name,
-          style: const TextStyle(fontWeight: FontWeight.bold),
-          textScaleFactor: 1.75,
-        )),
+          textScaleFactor: 1.25,
+        ),
       ),
     );
   }

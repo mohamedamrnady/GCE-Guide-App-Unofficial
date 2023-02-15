@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:gce_guide/screens/main_screen.dart';
+import 'package:gce_guide/ui/screens/main_screen.dart';
 
 void main() {
   runApp(const MyApp());
