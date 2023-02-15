@@ -29,4 +29,4 @@ jobs:
         with:
           repo_token: "${{ secrets.GITHUB_TOKEN }}"
           prerelease: false
-          files: app-release.apk
+          files: build/app/outputs/flutter-apk/app-release.apk
