@@ -24,7 +24,6 @@ jobs:
         run: flutter pub get
       - name: Build with Flutter
         run: flutter build apk
-      - name: Sign APK
       - name: Add version to APK
         run: mv ${{steps.sign_apk.outputs.signedFile}} revanced-manager-${{ env.RELEASE_VERSION }}.apk
       - name: Publish release APK
