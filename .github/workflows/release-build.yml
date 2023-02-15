@@ -24,9 +24,11 @@ jobs:
         run: flutter pub get
       - name: Build with Flutter
         run: flutter build apk
+      - name: Add version to APK
+        run: mv "build/app/outputs/flutter-apk/app-release.apk" gce-guide-${{ env.RELEASE_VERSION }}.apk
       - name: Publish release APK
         uses: "marvinpinto/action-automatic-releases@latest"
         with:
           repo_token: "${{ secrets.GITHUB_TOKEN }}"
           prerelease: false
-          files: build/app/outputs/flutter-apk/app-release.apk
+          files: gce-guide-${{ env.RELEASE_VERSION }}.apk
