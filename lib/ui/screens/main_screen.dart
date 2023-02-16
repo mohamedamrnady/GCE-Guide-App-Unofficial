@@ -60,7 +60,8 @@ class MainPage extends StatelessWidget {
                                                               .length -
                                                           1),
                                             ),
-                                          )
+                                            mode:
+                                                LaunchMode.externalApplication)
                                     : await launchUrl(
                                         Uri.parse(
                                           snapshot.data![index]['url']!
