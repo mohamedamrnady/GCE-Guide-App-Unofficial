@@ -3,7 +3,7 @@ description: An app made in Flutter which helps GCE students to access past
   papers (IGCSE, A/AS, O Levels).
 
 publish_to: "none"
-version: 0.0.1+1
+version: 0.0.5+5
 
 environment:
   sdk: ">=2.19.0-219.0.dev <3.0.0"
