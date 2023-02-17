@@ -60,7 +60,8 @@ class MainPage extends StatelessWidget {
                                                               .length -
                                                           1),
                                             ),
-                                            mode: LaunchMode.inAppWebView,
+                                            mode:
+                                                LaunchMode.externalApplication,
                                           )
                                     : await launchUrl(
                                         Uri.parse(
@@ -71,6 +72,7 @@ class MainPage extends StatelessWidget {
                                                           .length -
                                                       1),
                                         ),
+                                        mode: LaunchMode.externalApplication,
                                       )
                                 : showDialog(
                                     context: context,
