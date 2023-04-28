@@ -23,69 +23,64 @@ class MainPage extends StatelessWidget {
         builder: (context, snapshot) {
           return Center(
             child: snapshot.hasData
-                ? Padding(
+                ? ListView.builder(
                     padding: const EdgeInsets.all(12.0),
-                    child: ListView.builder(
-                      itemCount: snapshot.data!.length,
-                      itemBuilder: (context, index) {
-                        return CardModel(
-                          name: snapshot.data?[index]['name'] ??
-                              snapshot.data![index]['error']!.split(":")[0],
-                          onTap: () async {
-                            snapshot.data![index]['name'] != null
-                                ? !snapshot.data![index]['name']!
-                                        .endsWith('.pdf')
-                                    ? !snapshot.data![index]['name']!
-                                            .endsWith('.docx')
-                                        ? Navigator.push(
-                                            context,
-                                            MaterialPageRoute(
-                                              builder: (context) => MainPage(
-                                                url: snapshot.data![index]
-                                                    ['url']!,
-                                                title: snapshot.data![index]
-                                                    ['name']!,
-                                              ),
+                    itemCount: snapshot.data!.length,
+                    itemBuilder: (context, index) {
+                      return CardModel(
+                        name: snapshot.data?[index]['name'] ??
+                            snapshot.data![index]['error']!.split(":")[0],
+                        onTap: () async {
+                          snapshot.data![index]['name'] != null
+                              ? !snapshot.data![index]['name']!.endsWith('.pdf')
+                                  ? !snapshot.data![index]['name']!
+                                          .endsWith('.docx')
+                                      ? Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                            builder: (context) => MainPage(
+                                              url: snapshot.data![index]
+                                                  ['url']!,
+                                              title: snapshot.data![index]
+                                                  ['name']!,
                                             ),
-                                          )
-                                        : await launchUrl(
-                                            Uri.parse(
-                                              snapshot.data![index]['url']!
-                                                  .substring(
-                                                      0,
-                                                      snapshot
-                                                              .data![index]
-                                                                  ['url']!
-                                                              .length -
-                                                          1),
-                                            ),
-                                            mode:
-                                                LaunchMode.externalApplication,
-                                          )
-                                    : await launchUrl(
-                                        Uri.parse(
-                                          snapshot.data![index]['url']!
-                                              .substring(
-                                                  0,
-                                                  snapshot.data![index]['url']!
-                                                          .length -
-                                                      1),
-                                        ),
-                                        mode: LaunchMode.externalApplication,
-                                      )
-                                : showDialog(
-                                    context: context,
-                                    builder: (context) => AlertDialog(
-                                      title: const Text('Error'),
-                                      content:
-                                          Text(snapshot.data![index]['error']!),
-                                      actions: const [],
-                                    ),
-                                  );
-                          },
-                        );
-                      },
-                    ),
+                                          ),
+                                        )
+                                      : await launchUrl(
+                                          Uri.parse(
+                                            snapshot.data![index]['url']!
+                                                .substring(
+                                                    0,
+                                                    snapshot
+                                                            .data![index]
+                                                                ['url']!
+                                                            .length -
+                                                        1),
+                                          ),
+                                          mode: LaunchMode.externalApplication,
+                                        )
+                                  : await launchUrl(
+                                      Uri.parse(
+                                        snapshot.data![index]['url']!.substring(
+                                            0,
+                                            snapshot.data![index]['url']!
+                                                    .length -
+                                                1),
+                                      ),
+                                      mode: LaunchMode.externalApplication,
+                                    )
+                              : showDialog(
+                                  context: context,
+                                  builder: (context) => AlertDialog(
+                                    title: const Text('Error'),
+                                    content:
+                                        Text(snapshot.data![index]['error']!),
+                                    actions: const [],
+                                  ),
+                                );
+                        },
+                      );
+                    },
                   )
                 : const CircularProgressIndicator(),
           );
