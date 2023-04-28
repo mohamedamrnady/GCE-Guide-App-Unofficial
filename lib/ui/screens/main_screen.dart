@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:gce_guide/func/get_list.dart';
 import 'package:gce_guide/ui/buttons/card_button.dart';
 import 'package:url_launcher/url_launcher.dart';
-import 'package:url_launcher/url_launcher_string.dart';
 
 class MainPage extends StatelessWidget {
   final String url;
